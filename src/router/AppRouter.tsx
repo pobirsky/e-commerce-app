@@ -1,15 +1,15 @@
 import React from "react";
 
-import ProductItem from "@components/ProductItem";
-import MainPage from "@pages/MainPage";
 import { Route, Routes } from "react-router-dom";
+
+import { routes } from "./helper";
 
 const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/main" element={<MainPage />} />
-      <Route path="*" element={<MainPage />} />
-      <Route path="/product/:id" element={<ProductItem />} />
+      {routes.map(({ path, element }) => {
+        return <Route path={path} element={element} />;
+      })}
     </Routes>
   );
 };

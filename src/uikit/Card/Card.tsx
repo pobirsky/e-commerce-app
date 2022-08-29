@@ -9,6 +9,7 @@ type CardProps = {
   content?: React.ReactNode;
   category?: React.ReactNode;
   onClick?: React.MouseEvent;
+  link: React.ReactNode;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
 export const Card: React.FC<CardProps> = ({
@@ -18,6 +19,7 @@ export const Card: React.FC<CardProps> = ({
   content,
   onClick,
   category,
+  link,
   ...rest
 }) => {
   return (

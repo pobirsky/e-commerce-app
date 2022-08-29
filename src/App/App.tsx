@@ -6,12 +6,12 @@ import "@styles/normalize.css";
 
 import AppRouter from "../router/AppRouter";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <AppRouter />
     </div>
   );
-}
+};
 
 export default App;

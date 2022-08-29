@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Button from "@uikit/Button";
 import Input from "@uikit/Input";
@@ -7,6 +7,9 @@ import MultiDropdown from "@uikit/MultiDropdown";
 import styles from "./Header.module.scss";
 
 const Header = () => {
+  const [value, setValue] = useState("Search property");
+  const [valueDropdown, setValuevalueDrppdown] = useState([]);
+
   return (
     <header className={styles.header}>
       <h1 className={styles.title}>Products</h1>
@@ -17,7 +20,7 @@ const Header = () => {
       <div className={styles.find}>
         <form className={styles.findForm}>
           <Input
-            value="Search property"
+            value={value}
             onChange={(value: string) => alert(value)}
             placeholder="Search property"
             className={styles.findFormInput}
@@ -26,7 +29,7 @@ const Header = () => {
         </form>
         <MultiDropdown
           options={[]}
-          value={[]}
+          value={valueDropdown}
           onChange={() => null}
           pluralizeOptions={() => "Filter"}
         />

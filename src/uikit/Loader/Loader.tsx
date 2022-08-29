@@ -2,6 +2,8 @@ import React from "react";
 
 import cn from "classnames";
 
+import styles from "./Loader.module.scss";
+
 enum LoaderSize {
   s = "s",
   m = "m",
@@ -18,7 +20,9 @@ const Loader: React.FC<LoaderProps> = ({ size, loading, className }) => {
   return (
     <>
       {loading ? (
-        <div className={cn(`loader_size-${size}`, className)}>Loading</div>
+        <div className={styles.flex}>
+          <div className={cn(className, styles.loader)} />
+        </div>
       ) : null}
     </>
   );
