@@ -10,9 +10,11 @@ export interface ILinkProps {
 
 const LinkNavbar = ({ link, title }: ILinkProps) => {
   return (
-    <Link to={link} className={styles.link}>
-      {title}
-    </Link>
+    <li className={styles.item}>
+      <Link to={link} className={styles.link}>
+        {title}
+      </Link>
+    </li>
   );
 };
 

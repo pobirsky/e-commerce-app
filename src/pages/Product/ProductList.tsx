@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 import { InputIPropduct, IProduct } from "@pages/Product/IProduct";
-import Card from "@uikit/Card";
+import Card from "@uikit/CardLink";
 import Loader from "@uikit/Loader";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 import styles from "./Product.module.scss";
 
@@ -47,17 +46,15 @@ const ProductList = () => {
           </div>
           <div className={styles.all}>
             {products.map((product: IProduct) => (
-              <Link to={`/product/${product.id}`}>
-                <Card
-                  link={product.id}
-                  key={product.id}
-                  image={product.image}
-                  title={product.title}
-                  subtitle={product.subtitle}
-                  category={product.category}
-                  content={product.content}
-                />
-              </Link>
+              <Card
+                to={`/product/${product.id}`}
+                key={product.id}
+                image={product.image}
+                title={product.title}
+                subtitle={product.subtitle}
+                category={product.category}
+                content={product.content}
+              />
             ))}
           </div>
         </>

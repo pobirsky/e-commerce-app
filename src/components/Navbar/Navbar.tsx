@@ -23,11 +23,7 @@ const Navbar = () => {
       </div>
       <ul className={styles.items}>
         {config.map(({ link, title }) => {
-          return (
-            <li className={styles.item}>
-              <LinkNavbar link={link} title={title} />
-            </li>
-          );
+          return <LinkNavbar link={link} title={title} />;
         })}
       </ul>
       <div className={styles.login}>

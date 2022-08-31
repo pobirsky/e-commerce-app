@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 import Navbar from "@components/Navbar";
 import Button, { ButtonColor } from "@uikit/Button";
-import Loader from "@uikit/Loader";
 import log from "@utils/log";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -34,36 +33,27 @@ const ProductItem = () => {
       log(loading);
     };
     fetch();
-  }, [id]);
+  }, [id, loading]);
 
   return (
     <>
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <Navbar />
-          <div className={styles.item}>
-            <div className={styles.wrapper}>
-              <img src={product?.image} alt={product?.title} />
-            </div>
-            <div className={styles.block}>
-              <h2 className={styles.block__title}>{product?.title}</h2>
-              <h3 className={styles.block__category}>{product?.category}</h3>
-              <p className={styles.block__color}>Color</p>
-              <h3 className={styles.block__subtitle}>{product?.subtitle}</h3>
-              <p className={styles.block__price}>$ {product?.content}</p>
-              <Button>Buy Now</Button>
-              <Button
-                color={ButtonColor.secondary}
-                className={styles.btn_white}
-              >
-                Add to Chart
-              </Button>
-            </div>
-          </div>
-        </>
-      )}
+      <Navbar />
+      <div className={styles.item}>
+        <div className={styles.wrapper}>
+          <img src={product?.image} alt={product?.title} />
+        </div>
+        <div className={styles.block}>
+          <h2 className={styles.block__title}>{product?.title}</h2>
+          <h3 className={styles.block__category}>{product?.category}</h3>
+          <p className={styles.block__color}>Color</p>
+          <h3 className={styles.block__subtitle}>{product?.subtitle}</h3>
+          <p className={styles.block__price}>$ {product?.content}</p>
+          <Button>Buy Now</Button>
+          <Button color={ButtonColor.secondary} className={styles.btn_white}>
+            Add to Chart
+          </Button>
+        </div>
+      </div>
     </>
   );
 };
